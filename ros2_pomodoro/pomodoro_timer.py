@@ -3,6 +3,7 @@
 
 import rclpy
 from rclpy.node import Node
+from rclpy.executors import ExternalShutdownException # 追加
 from std_msgs.msg import String
 
 class PomodoroTimer(Node):
@@ -33,11 +34,12 @@ def main():
     node = PomodoroTimer()
     try:
         rclpy.spin(node)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, ExternalShutdownException): # 変更: ExternalShutdownExceptionもキャッチ
         pass
     finally:
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok(): # 追加: まだ終了していない場合のみshutdown
+            rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
