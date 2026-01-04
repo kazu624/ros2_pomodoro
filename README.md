@@ -1,7 +1,6 @@
 # ros2_pomodoro
 
 ![test](https://github.com/kazu624/ros2_pomodoro/actions/workflows/test.yml/badge.svg)
-
 ROS 2で動作するポモドーロ・タイマーパッケージです。
 作業時間と休憩時間を管理し、残り時間をトピックとして配信します。
 
