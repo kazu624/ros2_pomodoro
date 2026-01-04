@@ -22,3 +22,6 @@ timeout 10 ros2 run ros2_pomodoro pomodoro_timer > /tmp/ros2_pomodoro.log 2>&1
 # 正常に動いていれば "Remaining: 24:59" という文字が出ているはず
 cat /tmp/ros2_pomodoro.log |
 grep 'Remaining: 24:59'
+
+#-このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+#-© 2025 Kazuki Nakagawa
