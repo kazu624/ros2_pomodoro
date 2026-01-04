@@ -2,22 +2,35 @@
 
 ![test](https://github.com/kazu624/ros2_pomodoro/actions/workflows/test.yml/badge.svg)
 
-## 概要
 ROS 2で動作するポモドーロ・タイマーパッケージです。
+作業時間と休憩時間を管理し、残り時間をトピックとして配信します。
 
-## 環境
+## 実行環境
 * Ubuntu 22.04 LTS
 * ROS 2 Humble Hawksbill
 * Python 3.10
 
-## インストール
+## ノードとトピック
+
+### ノード: `pomodoro_timer`
+ポモドーロ・タイマーのメインノードです。起動すると自動的に25分間のカウントダウンを開始します。
+
+### トピック
+* `/remaining_time` (std_msgs/String)
+    * **機能**: 現在の残り時間を配信します。
+    * **データ形式**: `Remaining: MM:SS` （例: `Remaining: 24:59`）
+    * **頻度**: 1Hz（1秒ごとに配信）
+
+## 使用方法
+
+以下のコマンドでノードを起動します。
 
 ```bash
-$cd ~/ros2_ws/src$ git clone [https://github.com/kazu624/ros2_pomodoro.git](https://github.com/kazu624/ros2_pomodoro.git)
-$cd ~/ros2_ws$ rosdep install -i --from-path src --rosdistro humble -y
-$ colcon build --packages-select ros2_pomodoro
+$ ros2 run ros2_pomodoro pomodoro_timer
 ```
 
 ## ライセンス
-- このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
-- © 2025 Kazuki Nakagawa
+このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+
+## 著作権
+© 2025 Kazuki Nakagawa
