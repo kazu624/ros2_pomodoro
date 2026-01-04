@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Kazuki Nakagawa
+# SPDX-License-Identifier: BSD-3-Clause
+
 from setuptools import find_packages, setup
 
 package_name = 'ros2_pomodoro'
