@@ -8,10 +8,12 @@ package_name = 'ros2_pomodoro'
 setup(
     name=package_name,
     version='0.0.0',
+    # __init__.py があるので、標準的な自動検索機能を使います
     packages=find_packages(exclude=['test']),
     data_files=[
-        ('share/ament_index/resource_index/packages',
-            ['resource/' + package_name]),
+        # resource ディレクトリの参照は削除したままにします
+        # ('share/ament_index/resource_index/packages',
+        #     ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
     install_requires=['setuptools'],
